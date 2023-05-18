@@ -1,0 +1,45 @@
+*{
+    /*por padrão o navegador ja tem margin e padding, zerando aqui vai ficar apenas o do bootstrap*/
+    padding: 0;
+    margin: 0;
+}
+
+input{
+    /*Usando o !important para forçar essa configuração por cima do bootstrap*/
+    width: 150px !important;
+    height: 150px !important;
+    font-size: 50pt !important;
+    text-align: center !important;
+
+}
+
+input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]{
+    -moz-appearance: none;
+    margin: 0;
+}
+
+.time{
+    color:antiquewhite;
+    text-align: center;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    font-size: 90pt;
+    
+}

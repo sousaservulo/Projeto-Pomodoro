@@ -3,7 +3,7 @@ let pausa = document.getElementById('pausa')
 let ciclo = document.getElementById('ciclo')
 let segundos 
 
-var som = new  Audio("./audio/conc.mp3")
+var bell = new  Audio("./audio/bell.mp3")
 var volta = new Audio("./audio/volta.mp3")
 var final = new Audio("./audio/final.mp3")
 
@@ -59,6 +59,42 @@ function naAcao(){
     title.style.fontWeight = 'bold'
     title.style.setProperty('color','#28a745','important')
 
+    // trabalhando com os minutos, como o localstorage esta como string
+    // é necessario converter novamente para numero
+
+    min = Number(localStorage.getItem('tempo'))
+    min = min - 1 
+    segundos = 59
+
+    document.getElementById('minutes_ok').innerHTML = min
+    document.getElementById('seconds_ok').innerHTML = segundos
+
+    var interMinuto = setInterval(timerMinuto, 60000)
+    var interSegundo = setInterval(timerSegundo, 1000)
+
+    function timerMinuto(){
+        min = min - 1
+        document.getElementById('minutes_ok').innerHTML = min
+    }
+
+    function timerSegundo(){
+        segundos = segundos - 1
+        document.getElementById('seconds_ok').innerHTML = segundos
+
+        if(segundos <=0){
+            if(min <=0){
+                clearInterval(interMinuto)
+                clearInterval(interSegundo)
+
+                bell.play();
+
+                naPausa()
+
+            }
+            segundos = 60
+        }
+    }
+
 
 
 }
@@ -68,5 +104,8 @@ function naAcao(){
 
 
 function naPausa(){
+
+    
+
 
 }

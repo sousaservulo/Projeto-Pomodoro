@@ -40,3 +40,33 @@ function iniciar(){
 
 
 }
+
+function naAcao(){
+
+    let cicloValor = localStorage.getItem('ciclo')
+
+    if( cicloValor != 1){
+        document.getElementById('title_ciclo').innerHTML = cicloValor + ' ciclos restantes'
+
+    } else{
+        document.getElementById('title_ciclo').innerHTML = cicloValor + ' ciclo restante'
+    }
+
+
+    let title = document.getElementById('title')
+    title.innerHTML = "AÇAO"
+    title.style.fontSize = '25pt'
+    title.style.fontWeight = 'bold'
+    title.style.setProperty('color','#28a745','important')
+
+
+
+}
+
+
+
+
+
+function naPausa(){
+
+}

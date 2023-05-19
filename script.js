@@ -12,7 +12,18 @@ var conc = document.getElementById('conc')
 var pause = document.getElementById('pause')
 var play = document.getElementById('play')
 
-document.getElementById('timer').style.setProperty('display','none', 'important')
+function pausar(){
+    conc.pause()
+    play.style.setProperty('display','block', 'important')
+    pause.style.setProperty('display','none', 'important')
+
+}
+
+function tocar(){
+    conc.play()
+    play.style.setProperty('display','none', 'important')
+    pause.style.setProperty('display','block', 'important')
+}
 
 function iniciar(){
 
@@ -59,7 +70,7 @@ function naAcao(){
 
 
     let title = document.getElementById('title')
-    title.innerHTML = "AÇAO"
+    title.innerHTML = "Focando"
     title.style.fontSize = '25pt'
     title.style.fontWeight = 'bold'
     title.style.setProperty('color','#28a745','important')
@@ -136,10 +147,12 @@ function naPausa(){
         document.getElementById('seconds_ok').innerHTML = segundos
 
         if(segundos <=0){
+
             if(minPausa <=0){
+
                 sessao = Number(localStorage.getItem('ciclo'))
                 sessao = (sessao - 1)
-                localStorage.setItem('ciclo',string(sessao))
+                localStorage.setItem('ciclo',String(sessao))
 
                 clearInterval(interMinuto)
                 clearInterval(interSegundo)
@@ -150,12 +163,14 @@ function naPausa(){
                     document.getElementById('config').style.setProperty('display','none', 'important')
                     document.getElementById('timer').style.setProperty('display','none', 'important')
                     document.getElementById('fim').style.setProperty('display','block', 'important')
-                }else {
+                } else {
                     volta.play();
                     naAcao()
                 }
 
             }
+
+
             segundos = 60
         }
 
